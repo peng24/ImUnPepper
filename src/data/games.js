@@ -203,6 +203,74 @@ export const games = [
       'https://wordwall.net/th/embed/18d9e49d7ff547e78d287385a5a14aba?themeId=44&templateId=2&fontStackId=0',
     difficulty: 3,
   },
+
+  // === หมวด เพิ่มเติมจากผู้ใช้ ===
+  {
+    id: 'match-game-1',
+    title: 'เกมจับคู่ 1',
+    subtitle: 'ฝึกทักษะการจับคู่',
+    emoji: '🧩',
+    color: '#4a90e2',
+    category: 'คำศัพท์',
+    thumb: 'https://screens.cdn.wordwall.net/400/b308194da8ca4d98b74d68db95f7e9df_1',
+    embed: 'https://wordwall.net/th/embed/b308194da8ca4d98b74d68db95f7e9df?themeId=1&templateId=3&fontStackId=0',
+    difficulty: 1,
+  },
+  {
+    id: 'match-game-2',
+    title: 'เกมจับคู่ 2',
+    subtitle: 'ฝึกทักษะการจับคู่',
+    emoji: '🧩',
+    color: '#5cb85c',
+    category: 'คำศัพท์',
+    thumb: 'https://screens.cdn.wordwall.net/400/eefbeeeb40df4194b631aa9d09bf00d4_1',
+    embed: 'https://wordwall.net/th/embed/eefbeeeb40df4194b631aa9d09bf00d4?themeId=1&templateId=3&fontStackId=0',
+    difficulty: 1,
+  },
+  {
+    id: 'find-match',
+    title: 'เกมหาคู่',
+    subtitle: 'ตามหาคู่ที่ถูกต้อง',
+    emoji: '🔍',
+    color: '#ff6b6b',
+    category: 'คำศัพท์',
+    thumb: 'https://screens.cdn.wordwall.net/400/ac2c85f9f8f344caaeb633a74687b8d5',
+    embed: 'https://wordwall.net/th/embed/ac2c85f9f8f344caaeb633a74687b8d5?themeId=1&templateId=46&fontStackId=0',
+    difficulty: 2,
+  },
+  {
+    id: 'match-game-3',
+    title: 'เกมจับคู่ 3',
+    subtitle: 'ฝึกทักษะการจับคู่',
+    emoji: '🧩',
+    color: '#ff9f43',
+    category: 'คำศัพท์',
+    thumb: 'https://screens.cdn.wordwall.net/400/4ae88b56648a4c4b8d2ba5d6d391acf7',
+    embed: 'https://wordwall.net/th/embed/4ae88b56648a4c4b8d2ba5d6d391acf7?themeId=27&templateId=3&fontStackId=0',
+    difficulty: 2,
+  },
+  {
+    id: 'thai-idioms',
+    title: 'สำนวนชวนคิด',
+    subtitle: 'ปริศนาสุภาษิต คำพังเพย',
+    emoji: '🤔',
+    color: '#a55eea',
+    category: 'สำนวนและสุภาษิต',
+    thumb: 'https://screens.cdn.wordwall.net/400/27c9dddeb0de423fb698cbd02f577355_21',
+    embed: 'https://wordwall.net/th/embed/27c9dddeb0de423fb698cbd02f577355?themeId=21&templateId=69&fontStackId=0',
+    difficulty: 3,
+  },
+  {
+    id: 'match-game-4',
+    title: 'เกมจับคู่ 4',
+    subtitle: 'ฝึกทักษะการจับคู่',
+    emoji: '🧩',
+    color: '#4a90e2',
+    category: 'คำศัพท์',
+    thumb: 'https://screens.cdn.wordwall.net/400/0d195b390a694c84bef1ed39b22b7097_45',
+    embed: 'https://wordwall.net/th/embed/0d195b390a694c84bef1ed39b22b7097?themeId=45&templateId=3&fontStackId=0',
+    difficulty: 2,
+  },
 ]
 
 // หมวดหมู่ทั้งหมด (ตามลำดับที่ต้องการแสดง)
@@ -211,6 +279,7 @@ export const categories = [
   'คำศัพท์',
   'ชนิดของคำ',
   'การสะกดคำ',
+  'สำนวนและสุภาษิต',
 ]
 
 // ดึงเกมตามหมวดหมู่
