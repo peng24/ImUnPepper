@@ -75,17 +75,19 @@ const Stats = () => {
         style={{
           background: 'rgba(255, 255, 255, 0.9)',
           backdropFilter: 'blur(10px)',
-          padding: '40px',
+          padding: 'clamp(20px, 4vw, 40px)',
           borderRadius: '24px',
           boxShadow: '0 12px 32px rgba(0,0,0,0.1)',
-          maxWidth: '500px',
-          width: '100%',
-          textAlign: 'center'
+          maxWidth: '800px',
+          width: '95%',
+          textAlign: 'center',
+          maxHeight: '90vh',
+          overflowY: 'auto'
         }}
       >
         <h1 style={{ color: '#4a90e2', marginBottom: '24px', fontSize: '2rem' }}>📊 สถิติการเข้าชม (ลับ)</h1>
         
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '32px' }}>
           <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px' }}>
             <p style={{ color: '#718096', margin: 0 }}>วันนี้</p>
             <h2 style={{ color: '#ff6b6b', margin: 0, fontSize: '2.5rem' }}>{stats.today}</h2>
@@ -94,22 +96,22 @@ const Stats = () => {
             <p style={{ color: '#718096', margin: 0 }}>สัปดาห์นี้</p>
             <h2 style={{ color: '#ff9f43', margin: 0, fontSize: '2.5rem' }}>{stats.week}</h2>
           </div>
-          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px', gridColumn: 'span 2' }}>
+          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px' }}>
             <p style={{ color: '#718096', margin: 0 }}>ผู้เข้าชมทั้งหมด</p>
             <h2 style={{ color: '#a55eea', margin: 0, fontSize: '3rem' }}>{stats.total.toLocaleString()}</h2>
           </div>
 
-          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px', gridColumn: 'span 2' }}>
+          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px' }}>
             <p style={{ color: '#718096', margin: 0 }}>🎮 จำนวนเกมที่เล่นไปแล้ว</p>
             <h2 style={{ color: '#ff6b6b', margin: 0, fontSize: '2.5rem' }}>{stats.gamesPlayed || 0} <span style={{ fontSize: '1rem', color: '#a0aec0' }}>ครั้ง</span></h2>
           </div>
 
-          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px', gridColumn: 'span 2' }}>
+          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px' }}>
             <p style={{ color: '#718096', margin: 0 }}>🕒 เวลาที่เล่นสนุกไปแล้ว</p>
             <h2 style={{ color: '#ff9f43', margin: 0, fontSize: '2.5rem' }}>{formatTime(stats.playTimeMinutes)}</h2>
           </div>
 
-          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px', gridColumn: 'span 2', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ background: '#f8f9fa', padding: '20px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div>
               <p style={{ color: '#718096', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <motion.span
