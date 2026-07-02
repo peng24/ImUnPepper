@@ -137,11 +137,12 @@ img {
 .hero-title {
   font-size: clamp(2rem, 6vmin, 3.5rem);
   font-weight: 900;
-  color: var(--c-white);
-  text-shadow: 0 4px 0 var(--c-sky-dark), 0 8px 20px rgba(0, 0, 0, 0.25);
-  line-height: 1.1;
+  color: #ffde59;
+  -webkit-text-stroke: 2px #ff5757;
+  text-shadow: 0 5px 0 #ff5757, 0 8px 20px rgba(0, 0, 0, 0.25);
+  line-height: 1.2;
   margin-bottom: 8px;
-  letter-spacing: -0.5px;
+  letter-spacing: 1px;
 }
 
 .hero-subtitle {
@@ -149,6 +150,25 @@ img {
   color: rgba(255, 255, 255, 0.95);
   font-weight: 500;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle-pink {
+  color: #ff6b9d;
+  -webkit-text-stroke: 1.5px #83103c;
+  text-shadow: 0 4px 0 #83103c, 0 6px 12px rgba(0,0,0,0.3);
+  font-weight: 900;
+  font-size: clamp(1.2rem, 3vmin, 1.6rem);
+  margin-top: -0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.subtitle-orange {
+  color: #ff9f43;
+  -webkit-text-stroke: 1.5px #9c3f00;
+  text-shadow: 0 4px 0 #9c3f00, 0 6px 12px rgba(0,0,0,0.3);
+  font-weight: 900;
+  font-size: clamp(1.1rem, 2.8vmin, 1.5rem);
+  letter-spacing: 0.5px;
 }
 
 .hero-mascot-container {
@@ -166,9 +186,9 @@ img {
 }
 
 .avatar-img {
-  width: clamp(75px, 16vmin, 110px);
+  width: clamp(100px, 22vmin, 160px);
   height: auto;
-  max-height: clamp(75px, 16vmin, 110px);
+  max-height: clamp(100px, 22vmin, 160px);
   object-fit: contain;
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
 }

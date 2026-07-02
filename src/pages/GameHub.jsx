@@ -24,15 +24,15 @@ const GameHub = () => {
         <span className="hero-badge">🎮 สนุกกับการเรียนรู้</span>
         <div className="hero-mascot-container">
           <div className="hero-mascot mascot-imun">
-            <img src="/imun_emoji.png" alt="อิ่มอุ่น" className="avatar-img" />
+            <img src="/imun_avatar_transparent.png" alt="อิ่มอุ่น" className="avatar-img" />
           </div>
           <div className="hero-mascot mascot-pepper">
-            <img src="/pepper_emoji.png" alt="เปปเปอร์" className="avatar-img" />
+            <img src="/pepper_avatar_transparent.png" alt="เปปเปอร์" className="avatar-img" />
           </div>
         </div>
         <h1 className="hero-title">ImUn & Pepper Game</h1>
-        <p className="hero-subtitle" style={{ fontSize: '1rem', marginTop: '-0.5rem', opacity: 0.85 }}>อิ่มอุ่นและเปปเปปอร์ เกมส์</p>
-        <p className="hero-subtitle">เลือกเกมที่อยากเล่นได้เลย!</p>
+        <p className="hero-subtitle subtitle-pink">อิ่มอุ่นและเปปเปปอร์ เกมส์</p>
+        <p className="hero-subtitle subtitle-orange">เลือกเกมที่อยากเล่นได้เลย!</p>
       </motion.div>
 
       {/* แสดงเกมแบ่งตามหมวดหมู่ */}
