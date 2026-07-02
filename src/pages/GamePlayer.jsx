@@ -11,10 +11,19 @@ const GamePlayer = () => {
   const [loaded, setLoaded] = useState(false)
   const game = getGameById(gameId)
 
-  // รีเซ็ตสถานะ loading เมื่อเปลี่ยนเกม
+  // รีเซ็ตสถานะ loading และนับสถิติเมื่อเปลี่ยนเกม
   useEffect(() => {
     setLoaded(false)
     window.scrollTo(0, 0)
+
+    if (gameId) {
+      let stats = JSON.parse(localStorage.getItem('imun_pepper_stats')) || {
+        today: 0, week: 0, total: 0, lastDate: null, popular: 'ไม่มี',
+        gamesPlayed: 0, playTimeMinutes: 0
+      };
+      stats.gamesPlayed = (stats.gamesPlayed || 0) + 1;
+      localStorage.setItem('imun_pepper_stats', JSON.stringify(stats));
+    }
   }, [gameId])
 
   // หากเกมไม่พบ กลับหน้าหลัก
@@ -93,10 +102,10 @@ const GamePlayer = () => {
           <div className="player-loading">
             <div className="hero-mascot-container" style={{ marginBottom: 16 }}>
               <div className="hero-mascot mascot-imun" style={{ width: '60px', height: '60px' }}>
-                <img src="/imun_emoji.png" alt="อิ่มอุ่น" className="avatar-img" style={{ width: '100%', height: '100%' }} />
+                <img src="/imun_avatar_transparent.png" alt="อิ่มอุ่น" className="avatar-img" style={{ width: '100%', height: '100%' }} />
               </div>
               <div className="hero-mascot mascot-pepper" style={{ width: '60px', height: '60px' }}>
-                <img src="/pepper_emoji.png" alt="เปปเปอร์" className="avatar-img" style={{ width: '100%', height: '100%' }} />
+                <img src="/pepper_avatar_transparent.png" alt="เปปเปอร์" className="avatar-img" style={{ width: '100%', height: '100%' }} />
               </div>
             </div>
             <div className="spinner" />

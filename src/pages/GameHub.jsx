@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import { categories, getGamesByCategory } from '../data/games.js'
 import GameCard from '../components/GameCard.jsx'
 
@@ -12,6 +14,34 @@ const categoryIcons = {
 
 // หน้ารวบรวมเกม (Game Hub)
 const GameHub = () => {
+  useEffect(() => {
+    // ระบบเก็บสถิติการเข้าชม (เก็บในเครื่อง)
+    const today = new Date().toDateString();
+    let stats = JSON.parse(localStorage.getItem('imun_pepper_stats')) || {
+      today: 0,
+      week: 0,
+      total: 0,
+      lastDate: null,
+      popular: 'ไม่มี'
+    };
+
+    if (stats.lastDate !== today) {
+      stats.today = 1;
+      stats.lastDate = today;
+    } else {
+      stats.today += 1;
+    }
+    stats.week += 1;
+    stats.total += 1;
+    stats.popular = 'เกมเรียงคำ'; // สมมติว่าเป็นเกมยอดฮิต
+
+    localStorage.setItem('imun_pepper_stats', JSON.stringify(stats));
+
+    // นับยอดเข้าชมรวมจากทุกเครื่อง (Global)
+    fetch('https://api.counterapi.dev/v1/imun-pepper-game-global/visits/up')
+      .catch(err => console.error('Error updating global stats:', err));
+  }, []);
+
   return (
     <div className="app">
       {/* Hero */}
@@ -64,7 +94,7 @@ const GameHub = () => {
 
       {/* Footer */}
       <footer className="footer">
-        ทำด้วย <span className="footer-heart">❤️</span> สำหรับนักผจญภัยตัวน้อย ·
+        ทำด้วย <Link to="/stats" style={{ textDecoration: 'none', color: 'inherit', cursor: 'default' }}><span className="footer-heart">❤️</span></Link> สำหรับนักผจญภัยตัวน้อย ·
         เกมโดย Wordwall
       </footer>
     </div>
