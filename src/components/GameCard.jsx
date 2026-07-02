@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { difficultyLabels } from '../data/games.js'
+import { playPopSound } from '../utils/audio.js'
 
 // การ์ดเกม - แสดงภาพ + ชื่อ + ระดับความยาก
 const GameCard = ({ game, index = 0 }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
+    playPopSound()
     navigate(`/play/${game.id}`)
   }
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getGameById } from '../data/games.js'
+import { playPopSound } from '../utils/audio.js'
 
 // หน้าเล่นเกม (iframe ของ Wordwall)
 const GamePlayer = () => {
@@ -31,7 +32,7 @@ const GamePlayer = () => {
         >
           ไม่พบเกมนี้
         </h1>
-        <button className="btn-primary" onClick={() => navigate('/')}>
+        <button className="btn-primary" onClick={() => { playPopSound(); navigate('/') }}>
           กลับหน้าหลัก
         </button>
       </div>
@@ -49,7 +50,7 @@ const GamePlayer = () => {
       >
         <button
           className="player-back"
-          onClick={() => navigate('/')}
+          onClick={() => { playPopSound(); navigate('/') }}
           aria-label="กลับ"
         >
           ← กลับ
@@ -59,6 +60,26 @@ const GamePlayer = () => {
           <div className="player-title">{game.title}</div>
           <div className="player-subtitle">{game.subtitle}</div>
         </div>
+        <button
+          className="player-fullscreen-btn"
+          onClick={() => {
+            playPopSound()
+            const playerElem = document.querySelector('.player-frame-wrap')
+            if (!document.fullscreenElement) {
+              playerElem?.requestFullscreen?.().catch((err) => {
+                console.error('Error attempting to enable fullscreen:', err.message)
+              })
+            } else {
+              document.exitFullscreen?.()
+            }
+          }}
+          aria-label="เต็มจอ"
+          title="เล่นเต็มจอ"
+        >
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+          </svg>
+        </button>
       </motion.div>
 
       {/* iframe */}
@@ -70,7 +91,14 @@ const GamePlayer = () => {
       >
         {!loaded && (
           <div className="player-loading">
-            <div className="player-loading-emoji">{game.emoji}</div>
+            <div className="hero-mascot-container" style={{ marginBottom: 16 }}>
+              <div className="hero-mascot mascot-imun" style={{ width: '60px', height: '60px' }}>
+                <img src="/imun_emoji.png" alt="อิ่มอุ่น" className="avatar-img" style={{ width: '100%', height: '100%' }} />
+              </div>
+              <div className="hero-mascot mascot-pepper" style={{ width: '60px', height: '60px' }}>
+                <img src="/pepper_emoji.png" alt="เปปเปอร์" className="avatar-img" style={{ width: '100%', height: '100%' }} />
+              </div>
+            </div>
             <div className="spinner" />
             <div className="player-loading-text">กำลังโหลดเกม...</div>
           </div>
